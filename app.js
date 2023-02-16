@@ -3,6 +3,10 @@ const app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
+// Auth Routes
+const auth = require("./routes/auth.routes");
+app.use("/auth", auth);
+
 // home route
 app.use("/", (req, res) => {
   res.send("APIs working");
