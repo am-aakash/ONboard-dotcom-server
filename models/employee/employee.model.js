@@ -14,15 +14,15 @@ module.exports = (sequelize, Sequelize) => {
     },
     role: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     date_of_joining: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     phone: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     email: {
       type: Sequelize.STRING,
@@ -34,7 +34,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     employee_id: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     company_id: {
       type: Sequelize.STRING,
@@ -42,15 +42,11 @@ module.exports = (sequelize, Sequelize) => {
     },
     team: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     status: {
       type: Sequelize.STRING,
-      allowNull: false,
-    },
-    sub_total: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   })
 
