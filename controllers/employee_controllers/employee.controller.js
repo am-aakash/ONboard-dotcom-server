@@ -102,7 +102,63 @@ exports.fetchEmployees = async (req, res) => {
           count: employees.count,
           data: employees,
         },
-        "Add employee successful"
+        "Fetch employee successful"
+      )
+    }
+  } catch (error) {
+    console.log(error)
+    return response.responseHelper(res, false, "Error", "Something went wrong")
+  }
+}
+
+exports.fetchSingleEmployee = async (req, res) => {
+  const employee_id = req.body.employee_id
+  console.log(employee_id)
+
+  try {
+    const employee = await Employee.findOne({
+      where: {
+        id: employee_id,
+      },
+    })
+    if (employee) {
+      return response.responseHelper(
+        res,
+        true,
+        employee,
+        "Get employee successful"
+      )
+    }
+  } catch (error) {
+    console.log(error)
+    return response.responseHelper(res, false, "Error", "Something went wrong")
+  }
+}
+
+exports.deleteEmployee = async (req, res) => {
+  const employee_id = req.body.employee_id
+  console.log(employee_id)
+
+  try {
+    const employee = await Employee.findOne({
+      where: {
+        id: employee_id,
+      },
+    })
+    if(!employee){
+      return response.responseHelper(res, false, "Error", "This Employee does not exists")
+    }
+    const temp = await Employee.destroy({
+      where: {
+        id: employee_id,
+      },
+    })
+    if (employee) {
+      return response.responseHelper(
+        res,
+        true,
+        employee,
+        "Deleted employee successful"
       )
     }
   } catch (error) {
