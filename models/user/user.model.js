@@ -17,7 +17,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false,
     },
     type: {
-      type: Sequelize.INTEGER, // 1 for company manager, 2 for app admin, 3 for employee
+      type: Sequelize.INTEGER, // 1 for company manager or hr, 2 for admin, 3 for employee
       allowNull: false,
     },
     company_id: {

@@ -1,5 +1,3 @@
-var DataTypes = require("sequelize/lib/data-types")
-
 module.exports = (sequelize, Sequelize) => {
   const Employee = sequelize.define("employee", {
     id: {
@@ -37,14 +35,30 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: true,
     },
     company_id: {
-      type: Sequelize.STRING,
+      type: Sequelize.UUID,
       allowNull: false,
+    },
+    company_name: {
+      type: Sequelize.STRING,
+      allowNull: true,
     },
     team: {
       type: Sequelize.STRING,
       allowNull: true,
     },
     status: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    status_date: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    status_subheading: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    photo: {
       type: Sequelize.STRING,
       allowNull: true,
     },
