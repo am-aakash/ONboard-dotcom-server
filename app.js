@@ -20,6 +20,10 @@ app.use(cors({
     }
 }));
 
+//Admin Route
+const admin = require('./controllers/admin.controller');
+app.use('/admin', admin)
+
 // Auth Routes
 const auth = require("./routes/auth.routes")
 app.use("/auth", auth)
