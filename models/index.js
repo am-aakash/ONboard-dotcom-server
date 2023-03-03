@@ -37,14 +37,14 @@ db.company_photos.belongsTo(db.company, {
   foreignKey: 'company_id',
 })
 
-// Company Admin M2M relation
-db.company_admin = require("./company/company_admin.model")(sequelize, Sequelize)
-db.company_admin.belongsTo(db.user, {
-  foreignKey: 'admin_id',
-})
-db.company_admin.belongsTo(db.company, {
-  foreignKey: 'company_id',
-})
+// // Company Admin M2M relation
+// db.company_admin = require("./company/company_admin.model")(sequelize, Sequelize)
+// db.company_admin.belongsTo(db.user, {
+//   foreignKey: 'admin_id',
+// })
+// db.company_admin.belongsTo(db.company, {
+//   foreignKey: 'company_id',
+// })
 
 db.employee.belongsTo(db.company, {
   foreignKey: 'company_id',
