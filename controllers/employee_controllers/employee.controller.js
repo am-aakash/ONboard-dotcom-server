@@ -8,10 +8,15 @@ exports.addEmployee = async (req, res) => {
   const role = req.body.role
   const phone = req.body.phone
   const employee_id = req.body.employee_id
+  const user_id = req.body.user_id
   const team = req.body.team
   const status = req.body.status
+  const status_subheading = req.body.status_subheading
+  const status_date = req.body.status_date
   const email = req.body.email
+  const photo = req.body.photo
   const company_id = req.body.company_id
+  const company_name = req.body.company_name
   const password = req.body.password
 
   if (
@@ -51,11 +56,16 @@ exports.addEmployee = async (req, res) => {
         date_of_joining,
         role,
         phone,
+        user_id,
         employee_id,
         team,
         status,
         email,
+        status_subheading,
+        status_date,
         company_id,
+        photo,
+        company_name,
         password,
       })
       if (employee) {
@@ -145,8 +155,13 @@ exports.deleteEmployee = async (req, res) => {
         id: employee_id,
       },
     })
-    if(!employee){
-      return response.responseHelper(res, false, "Error", "This Employee does not exists")
+    if (!employee) {
+      return response.responseHelper(
+        res,
+        false,
+        "Error",
+        "This Employee does not exists"
+      )
     }
     const temp = await Employee.destroy({
       where: {
