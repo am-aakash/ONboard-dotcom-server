@@ -32,6 +32,10 @@ app.use("/auth", auth)
 const employee = require("./routes/employee.routes")
 app.use("/employee", employee)
 
+// Company Routes
+const company = require("./routes/company.routes")
+app.use("/company", company)
+
 // home route
 app.use("/", (req, res) => {
   res.send("APIs working")
